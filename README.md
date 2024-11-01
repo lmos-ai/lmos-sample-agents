@@ -1,13 +1,15 @@
 <!--
-SPDX-FileCopyrightText: 2023 Deutsche Telekom AG
+SPDX-FileCopyrightText: 2024 Deutsche Telekom AG
 
 SPDX-License-Identifier: CC0-1.0    
 -->
+
+[![Java CI with Gradle](https://github.com/lmos-ai/lmos-sample-agents/actions/workflows/gradle.yml/badge.svg)](https://github.com/lmos-ai/lmos-sample-agents/actions/workflows/gradle.yml)
+[![GitHub Actions Publish Status](https://github.com/lmos-ai/lmos-sample-agents/actions/workflows/gradle-publish.yml/badge.svg?branch=main)](https://github.com/lmos-ai/lmos-sample-agents/actions/workflows/gradle-publish.yml)
+[![Apache 2.0 License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+
 # Welcome to the LMOS Sample Agents Repository
-
-## About
-
-This repository contains sample agents for the LMOS (Language Model Orchestration System) framework. These agents demonstrate how to integrate and utilize various language models, such as GPT-4o, within a Spring Boot application. The provided agents include examples for news, product search, technical specifications, and weather information. Each agent is designed to handle specific tasks and can be customized to fit different use cases.
 
 ## Agents
 
@@ -89,4 +91,4 @@ By participating in this project, you agree to abide by its [Code of Conduct](./
 
 This project follows the [REUSE standard for software licensing](https://reuse.software/).    
 Each file contains copyright and license information, and license texts can be found in the [./LICENSES](./LICENSES) folder. For more information visit https://reuse.software/.    
-You can find a guide for developers at https://telekom.github.io/reuse-template/.
+You can find a guide for developers at https://telekom.github.io/reuse-template/.   
