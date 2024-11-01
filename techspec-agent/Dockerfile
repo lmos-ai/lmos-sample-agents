@@ -2,10 +2,10 @@
 FROM registry.access.redhat.com/ubi9/openjdk-21-runtime as builder
 
 USER root
-# Define a build argument for the JAR file version
-ARG JAR_VERSION=1.0.0
+# Define build argument for version
+ARG VERSION
 # Use the build argument to specify the JAR file
-COPY build/libs/techspec-agent-${JAR_VERSION}.jar /deployments/app.jar
+COPY build/libs/techspec-agent-$VERSION.jar /deployments/app.jar
 WORKDIR /deployments
 RUN java -Djarmode=layertools -jar app.jar extract
 

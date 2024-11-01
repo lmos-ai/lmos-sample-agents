@@ -3,8 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 agent {
-    name = "tech-spec-agent"
-    model = { "GPT35T-1106" }
+    name = "techspec-agent"
     description =
         "An agent that interprets general queries related to TV, delivering technical specifications with accuracy and clarity to meet user needs."
     systemPrompt = {
