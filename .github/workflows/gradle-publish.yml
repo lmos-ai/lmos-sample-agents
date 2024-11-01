@@ -4,8 +4,6 @@ name: Publish to GitHub Packages
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 permissions:
   packages: write
   contents: read
