@@ -1,0 +1,20 @@
+#
+# SPDX-FileCopyrightText: 2024 Deutsche Telekom AG
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+apiVersion: lmos.ai/v1
+kind: Agent
+metadata:
+  name: {{ include "productsearch-agent.fullname" . }}
+  labels:
+    version: {{ .Chart.AppVersion | quote }}
+spec:
+  description: This is a productsearch agent which can summarize online pages.
+  supportedChannels:
+    - web
+  providedCapabilities:
+    - name: get-productsearch
+      version: {{ .Chart.AppVersion | quote }}
+      description: Capability to summarize the productsearch of an online web page.

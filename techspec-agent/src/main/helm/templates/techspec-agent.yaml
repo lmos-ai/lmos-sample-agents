@@ -1,0 +1,20 @@
+#
+# SPDX-FileCopyrightText: 2024 Deutsche Telekom AG
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+apiVersion: lmos.ai/v1
+kind: Agent
+metadata:
+  name: {{ include "techspec-agent.fullname" . }}
+  labels:
+    version: {{ .Chart.AppVersion | quote }}
+spec:
+  description: This is a techspec agent which can define technical specifications.
+  supportedChannels:
+    - web
+  providedCapabilities:
+    - name: get-techspec
+      version: {{ .Chart.AppVersion | quote }}
+      description: Capability to define technical specifications of a product.
