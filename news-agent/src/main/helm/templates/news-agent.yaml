@@ -16,5 +16,5 @@ spec:
     - web
   providedCapabilities:
     - name: get-news
-      version: {{ .Chart.AppVersion | quote }}
+      version: {{- if hasSuffix .Chart.AppVersion "-SNAPSHOT" }}{{ trimSuffix "-SNAPSHOT" .Chart.AppVersion }}{{ else }}{{ .Chart.AppVersion }}{{ end | quote }}
       description: Capability to summarize the news of an online web page.
