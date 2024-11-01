@@ -16,5 +16,5 @@ spec:
     - web
   providedCapabilities:
     - name: get-techspec
-      version: {{- if hasSuffix .Chart.AppVersion "-SNAPSHOT" }}{{ trimSuffix "-SNAPSHOT" .Chart.AppVersion }}{{ else }}{{ .Chart.AppVersion }}{{ end | quote }}
+      version: {{ .Chart.AppVersion | replace "-SNAPSHOT" "" | quote }}
       description: Capability to define technical specifications of a product.
