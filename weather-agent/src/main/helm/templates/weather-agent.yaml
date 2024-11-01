@@ -12,12 +12,8 @@ metadata:
     version: {{ .Chart.AppVersion | quote }}
 spec:
   description: This is the weather agent which can provide weather forecasts.
-  supportedTenants:
-    - de
-    - at
   supportedChannels:
     - web
-    - oneapp
   providedCapabilities:
     - name: get-weather-forecast
       version: {{ .Chart.AppVersion | quote }}
