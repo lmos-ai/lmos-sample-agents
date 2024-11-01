@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/lmos-ai/lmos-sample-agents
+  repository: ghcr.io/lmos-ai/lmos-sample-agents/news-agent
   pullPolicy: IfNotPresent
   
 nameOverride: "news-agent"

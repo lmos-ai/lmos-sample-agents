@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/lmos-ai/lmos-sample-agents
+  repository: ghcr.io/lmos-ai/lmos-sample-agents/techspec-agent
   pullPolicy: IfNotPresent
   
 nameOverride: "techspec-agent"
