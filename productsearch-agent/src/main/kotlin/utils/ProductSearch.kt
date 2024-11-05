@@ -39,7 +39,7 @@ class ProductSearch() {
                     val encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8.toString())
                     logger.info("Query to search: $query")
                     val url =
-                        "https://www.googleapis.com/customsearch/v1?key=$cloudApiKey=$searchEngineKey=$encodedQuery&googlehost=google.com&lr=lang_en&alt=json"
+                        "https://www.googleapis.com/customsearch/v1?key=$cloudApiKey&cx=$searchEngineKey&q=$encodedQuery&googlehost=google.com&lr=lang_en&alt=json"
                     val response: ApiResponse = client.get(url).body()
                     val productList = response.items.map { item ->
                         Product(
