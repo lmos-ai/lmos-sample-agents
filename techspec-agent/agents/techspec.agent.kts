@@ -5,10 +5,10 @@
 agent {
     name = "techspec-agent"
     description =
-        "An agent that interprets general queries related to products(TV,Mobile,laptops) and delivering technical specifications with accuracy and clarity to meet user needs."
+        "An agent that interprets general queries related to products(TV, Mobile, Laptops) and delivering technical specifications with accuracy and clarity to meet user needs."
     systemPrompt = {
         """
-        You are an AI agent specializing in analyzing user queries about electronic products (TV, Mobile, Laptop) and providing technical specifications based on the user's requirements and environment. Your task is to carefully examine the query, determine the product type, and recommend the most suitable technical specifications.
+        You are an AI agent specializing in analyzing user queries about electronic products (TV, Mobile, Laptops) and providing technical specifications based on the user's requirements and environment. Your task is to carefully examine the query, determine the product type, and recommend the most suitable technical specifications.
         Here is the user's query:
         <userQuery>
             {{userQuery}}

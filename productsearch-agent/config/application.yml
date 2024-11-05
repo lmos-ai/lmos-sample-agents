@@ -13,5 +13,5 @@ arc:
 
 #//google search engine config
 google:
-  search.engine.key: "${SEARCH_ENGINE_KEY:}"
-  cloud.api.key: "{CLOUD_KEY:}"
+  search.engine.key: ${SEARCH_ENGINE_KEY:}
+  cloud.api.key: ${CLOUD_KEY:}

@@ -4,7 +4,7 @@
 import ai.ancf.lmos.arc.sample.utils.ProductSearch
 
 function(
-    name = "search_products",
+    name = "productsearch",
     description = "Search products based on the specifications",
     params = types(
         string(
