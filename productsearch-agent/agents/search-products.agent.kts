@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Deutsche Telekom AG
+//
+// SPDX-License-Identifier: Apache-2.0
 agent {
     name = "search-products-agent"
     model = { "GPT35T-1106" }
