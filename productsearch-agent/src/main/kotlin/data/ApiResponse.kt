@@ -1,4 +1,4 @@
-package io.github.lmos.arc.runner.data
+package ai.ancf.lmos.arc.sample.data
 
 import kotlinx.serialization.Serializable
 

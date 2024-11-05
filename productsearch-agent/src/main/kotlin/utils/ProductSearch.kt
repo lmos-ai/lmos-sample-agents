@@ -1,7 +1,7 @@
-package io.github.lmos.arc.runner.utils
+package ai.ancf.lmos.arc.sample.utils
 
-import io.github.lmos.arc.runner.data.ApiResponse
-import io.github.lmos.arc.runner.data.Product
+import ai.ancf.lmos.arc.sample.data.ApiResponse
+import ai.ancf.lmos.arc.sample.data.Product
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.plugins.contentnegotiation.*
@@ -10,12 +10,17 @@ import io.ktor.serialization.kotlinx.json.*
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
 import org.slf4j.LoggerFactory
+import org.springframework.core.env.Environment
+import org.springframework.stereotype.Component
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
-class ProductSearch {
+@Component
+class ProductSearch() {
     companion object {
         private val logger = LoggerFactory.getLogger(javaClass)
+        private lateinit var searchEngineKey: String
+        private lateinit var cloudApiKey: String
 
         //This function will extract products based on query using custom google search engine
         fun searchProduct(query: String, siteSearch: String): List<Product> {
@@ -31,7 +36,7 @@ class ProductSearch {
                     val encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8.toString())
                     logger.info("Query to search: $query")
                     val url =
-                        "https://www.googleapis.com/customsearch/v1?key=AIzaSyAyLe8LJsDQKSxKaPKfAZW4Wki5Z-N7ap8&cx=87a3a8db0fac54e56&q=$encodedQuery&googlehost=google.com&lr=lang_en&alt=json"
+                        "https://www.googleapis.com/customsearch/v1?key=$cloudApiKey=$searchEngineKey=$encodedQuery&googlehost=google.com&lr=lang_en&alt=json"
                     val response: ApiResponse = client.get(url).body()
                     val productList = response.items.map { item ->
                         Product(
@@ -55,6 +60,11 @@ class ProductSearch {
                     client.close()
                 }
             }
+        }
+
+        fun initialize(environment: Environment) {
+            searchEngineKey = environment.getProperty("google.search.engine.key", "")
+            cloudApiKey = environment.getProperty("google.cloud.api.key", "")
         }
     }
 }

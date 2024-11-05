@@ -1,4 +1,4 @@
-import io.github.lmos.arc.runner.utils.ProductSearch
+import ai.ancf.lmos.arc.sample.utils.ProductSearch
 
 function(
     name = "search_products",

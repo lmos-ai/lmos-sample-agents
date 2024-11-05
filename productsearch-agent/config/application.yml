@@ -10,3 +10,8 @@ arc:
         client: "openai"
         apiKey: ${OPENAI_API_KEY}
         url: https://api.openai.com/v1/
+
+#//google search engine config
+google:
+  search.engine.key: "${SEARCH_ENGINE_KEY:}"
+  cloud.api.key: "{CLOUD_KEY:}"
