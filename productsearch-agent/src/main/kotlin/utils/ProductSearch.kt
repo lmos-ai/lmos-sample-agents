@@ -42,7 +42,7 @@ class ProductSearch() {
                     logger.info("Query to search: $query")
                     var productList: List<Product>
                     if (cloudApiKey.isEmpty() || searchEngineKey.isEmpty()) {
-                        throw Exception("Environment Variables are not set check cloud api key or search engine key")
+                        throw Exception("Environment variables are not - please set check cloud api key or search engine key!")
                     } else {
                         val url =
                             "https://www.googleapis.com/customsearch/v1?key=$cloudApiKey&cx=$searchEngineKey&q=$encodedQuery&googlehost=google.com&lr=lang_en&alt=json"
