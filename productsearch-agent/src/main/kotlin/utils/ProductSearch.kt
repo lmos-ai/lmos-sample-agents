@@ -96,6 +96,7 @@ class ProductSearch() {
         fun initialize(environment: Environment) {
             searchEngineKey = environment.getProperty("google.search.engine.key", "")
             cloudApiKey = environment.getProperty("google.cloud.api.key", "")
+            logger.info("API-> Keys are $searchEngineKey and $cloudApiKey")
         }
     }
 }
