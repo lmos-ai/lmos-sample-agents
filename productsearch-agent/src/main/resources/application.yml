@@ -27,7 +27,8 @@ arc:
 
 logging:
   level:
-    root: WARN
+    root: info
+    ai.ancf.lmos.arc: DEBUG
     io.github.lmos.arc: DEBUG
     io.github.lmos.arc.runner: WARN
     ArcDSL: DEBUG
