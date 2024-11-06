@@ -40,8 +40,10 @@ class ProductSearch() {
                     // Make the GET request and parse JSON into ProductResponse
                     val encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8.toString())
                     logger.info("Query to search: $query")
-                    var productList = emptyList<Product>()
-                    if (cloudApiKey.isNotEmpty() && searchEngineKey.isNotEmpty()) {
+                    var productList: List<Product>
+                    if (cloudApiKey.isEmpty() || searchEngineKey.isEmpty()) {
+                        throw Exception("Environment variables are not - please set check cloud api key or search engine key!")
+                    } else {
                         val url =
                             "https://www.googleapis.com/customsearch/v1?key=$cloudApiKey&cx=$searchEngineKey&q=$encodedQuery&googlehost=google.com&lr=lang_en&alt=json"
                         val response: ApiResponse = client.get(url).body()
@@ -65,7 +67,7 @@ class ProductSearch() {
                     logger.debug(gson.toJson(productList))
                     productList
                 } catch (e: Exception) {
-                    println("Error fetching product data: ${e.message}")
+                    logger.error("Error fetching product data: ${e.message}")
                     emptyList()
                 } finally {
                     client.close()
