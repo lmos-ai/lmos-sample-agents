@@ -67,7 +67,7 @@ class ProductSearch() {
                     logger.debug(gson.toJson(productList))
                     productList
                 } catch (e: Exception) {
-                    logger.error("Error fetching product data: ${e.message}")
+                    println("Error fetching product data: ${e.message}")
                     emptyList()
                 } finally {
                     client.close()
