@@ -2,10 +2,11 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 import ai.ancf.lmos.arc.api.AgentRequest
+
 agent {
     name = "productsearch-agent"
     description =
-        "An agent that interprets use queries related to products including (TV, Mobile, Laptops) and return recommended products based on technical specification or user query."
+        "An agent that interprets user queries related to products including (TV, Mobile, Laptops) and provides recommended products only when technical specifications (e.g., RAM, storage, resolution, connectivity, audio technology, display type, processor, screen size, battery, operating system or purpose) are identified."
     systemPrompt = {
         val request = get<AgentRequest>()
         //Get conversation History w.r.t to roles
@@ -14,7 +15,10 @@ agent {
             conversationHistory.add("${message.role}: ${message.content}");
         }
         """
-        You are an AI product recommendation agent designed to suggest products based on user inputs. Your task is to analyze the conversation history, generate appropriate search queries, and return a list of recommended products in a specific JSON format.
+        You are an AI product recommendation agent designed to suggest products based on user inputs. Your task is to analyze the conversation history or user query, generate appropriate search queries, and return a list of recommended products in a specific JSON format.
+        
+        Instruction: Only respond if specific technical specifications (such as product type, RAM, storage, resolution, connectivity, audio technology, display type, processor, screen size, battery, operating system or purpose) are mentioned in the conversation. Otherwise, do not provide any product recommendations.
+        Otherwise, return structure JSON with empty products
         
         Here is the conversation history:
         <conversation_history>
