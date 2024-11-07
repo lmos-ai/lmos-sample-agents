@@ -11,10 +11,10 @@ metadata:
   labels:
     version: {{ .Chart.AppVersion | quote }}
 spec:
-  description: This is a techspec agent which can define technical specifications.
+  description: This agent interprets general queries related to products(TV, Mobile, Laptops) and delivering technical information and specifications with clarity and accuracy to meet user needs. It should respond to both specific and general product feature requests, even if the user does not explicitly ask for specifications.
   supportedChannels:
     - web
   providedCapabilities:
     - name: get-techspec
       version: {{ .Chart.AppVersion | replace "-SNAPSHOT" "" | quote }}
-      description: Capability to define technical specifications of a product.
+      description: Capability to generate technical information and specifications based on the user need for electronics product.
