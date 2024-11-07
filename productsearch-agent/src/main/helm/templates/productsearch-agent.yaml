@@ -11,10 +11,10 @@ metadata:
   labels:
     version: {{ .Chart.AppVersion | quote }}
 spec:
-  description: This is a productsearch agent which can summarize online pages.
+  description: This agent interprets user queries related to products including (TV, Mobile, Laptops) and provides recommended products only when technical specifications (e.g., RAM, storage, resolution, connectivity, audio technology, display type, processor, screen size, battery, operating system or purpose) are identified.
   supportedChannels:
     - web
   providedCapabilities:
     - name: get-productsearch
       version: {{ .Chart.AppVersion | replace "-SNAPSHOT" "" | quote }}
-      description: Capability to summarize the productsearch of an online web page.
+      description: Capability to return a list of products based on the technical information and specifications the user is seeking.
