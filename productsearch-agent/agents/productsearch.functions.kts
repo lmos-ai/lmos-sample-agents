@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2024 Deutsche Telekom AG
 //
 // SPDX-License-Identifier: Apache-2.0
-import ai.ancf.lmos.arc.sample.utils.ProductSearch
+import ai.ancf.lmos.arc.sample.services.ProductSearch
 
 function(
     name = "productsearch",
@@ -13,7 +13,8 @@ function(
         )
     ),
 ) { (query) ->
-    val contextResult = query?.let { ProductSearch.searchProduct(it, "") }
+    val productSearch = get<ProductSearch>()
+    val contextResult = query?.let { productSearch.searchProduct(it, "") }
     """
         $contextResult
     """.trimIndent()
