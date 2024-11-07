@@ -3,10 +3,11 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import ai.ancf.lmos.arc.api.AgentRequest
+
 agent {
     name = "techspec-agent"
     description =
-        "An agent that interprets general queries related to products(TV, Mobile, Laptops) and delivering technical specifications with accuracy and clarity to meet user needs."
+        "This agent interprets general queries related to products(TV, Mobile, Laptops) and delivering technical information and specifications with clarity and accuracy to meet user needs. It should respond to both specific and general product feature requests, even if the user does not explicitly ask for specifications."
     systemPrompt = {
         val request = get<AgentRequest>()
         //Get conversation History w.r.t to roles
@@ -15,7 +16,7 @@ agent {
             conversationHistory.add("${message.role}: ${message.content}");
         }
         """
-        You are an AI agent specializing in analyzing user queries about electronic products (TV, Mobile, Laptops) and providing technical specifications based on the user's requirements and environment. Your task is to carefully examine the query, determine the product type, and recommend the most suitable technical specifications.
+        You are an AI agent specializing in analyzing user queries about electronic products (TV, Mobile, Laptops) and providing technical information and specifications based on the user's requirements and environment. Your task is to carefully examine the query, determine the product type, and recommend the most suitable technical specifications.
         Here is the user's conversation history:
         <conversationHistory>
             $conversationHistory
