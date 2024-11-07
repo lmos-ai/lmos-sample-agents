@@ -11,10 +11,10 @@ metadata:
   labels:
     version: {{ .Chart.AppVersion | quote }}
 spec:
-  description: This agent interprets user queries related to products including (TV, Mobile, Laptops) and provides recommended products only when technical specifications (e.g., RAM, storage, resolution, connectivity, audio technology, display type, processor, screen size, battery, operating system or purpose) are identified.
+  description: This agent provides a curated list of product recommendations tailored to explicit technical features and specifications identified by the user, such as RAM, storage, processor type, and resolution. It is designed to match user inquiries with precise products, best suited for those who have detailed feature needs and are ready to choose from available options.
   supportedChannels:
     - web
   providedCapabilities:
     - name: get-productsearch
       version: {{ .Chart.AppVersion | replace "-SNAPSHOT" "" | quote }}
-      description: Capability to return a list of products based on the technical information and specifications the user is seeking.
+      description: This agent provides a curated list of product recommendations tailored to specific technical features and specifications requested by the user, such as RAM, storage, processor, and display type. It helps users find products that match their precise requirements.
