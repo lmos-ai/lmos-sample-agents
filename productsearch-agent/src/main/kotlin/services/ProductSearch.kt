@@ -47,6 +47,7 @@ class ProductSearch(
                 } else {
                     val url =
                         "https://www.googleapis.com/customsearch/v1?key=$cloudApiKey&cx=$searchEngineKey&q=$encodedQuery&googlehost=google.com&lr=lang_en&alt=json"
+                    logger.info("API Request URL: $url")
                     val response: ApiResponse = client.get(url).body()
                     //meta-data is huge which might cause token issue with llm so extract only price and currency
                     val regex = Regex("(price|currency)")
@@ -68,7 +69,7 @@ class ProductSearch(
                 logger.debug(gson.toJson(productList))
                 productList
             } catch (e: Exception) {
-                logger.error("Error fetching product data: ${e.message}")
+                logger.error("Error fetching product data: ${e.message} \n stacktrace : ${e.stackTrace}")
                 emptyList()
             } finally {
                 client.close()
