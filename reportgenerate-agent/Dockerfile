@@ -5,7 +5,7 @@ USER root
 # Define build argument for version
 ARG VERSION
 # Use the build argument to specify the JAR file
-COPY build/libs/reportgenerateh-agent-$VERSION.jar /deployments/app.jar
+COPY build/libs/reportgenerate-agent-$VERSION.jar /deployments/app.jar
 WORKDIR /deployments
 RUN java -Djarmode=layertools -jar app.jar extract
 
