@@ -25,7 +25,7 @@ class PdfGenerator {
 
     // Function to generate PDF
     fun generatePdf(content: String, outputFile: String): String {
-        val pdfWriter = PdfWriter("Product_Recommendation_Report.pdf")
+        val pdfWriter = PdfWriter(outputFile)
         val pdfDoc = PdfDocument(pdfWriter)
         val document = Document(pdfDoc)
         var generateReport: Boolean = true

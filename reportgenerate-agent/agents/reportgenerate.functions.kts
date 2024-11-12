@@ -14,7 +14,7 @@ function(
     ),
 ) { (query) ->
     val pdfGenerate = get<PdfGenerator>()
-    val contextResult = query?.let { pdfGenerate.generatePdf(it, "catalog_report.pdf") }
+    val contextResult = query?.let { pdfGenerate.generatePdf(it, "Product_Recommendation_Report.pdf") }
     """
         $contextResult
     """.trimIndent()
