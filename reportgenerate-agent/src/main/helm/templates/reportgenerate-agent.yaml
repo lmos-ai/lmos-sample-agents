@@ -11,10 +11,10 @@ metadata:
   labels:
     version: {{ .Chart.AppVersion | quote }}
 spec:
-  description: The Report generation Agent.
+  description: The PDF Report Generation Agent analyzes user queries to generate tailored reports, compiling insights into a clear, well-structured PDF document.
   supportedChannels:
     - web
   providedCapabilities:
     - name: get-reportgenerate
       version: {{ .Chart.AppVersion | replace "-SNAPSHOT" "" | quote }}
-      description: Capability of generating reports in PDF file
+      description: Capability of generating report in PDF file

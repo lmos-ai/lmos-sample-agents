@@ -15,17 +15,26 @@ import com.itextpdf.layout.element.*
 import com.itextpdf.layout.property.TextAlignment
 import com.nimbusds.jose.shaded.gson.GsonBuilder
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
+import java.io.File
 
 
 @Component
-class PdfGenerator {
+class PdfGenerator(@Value("\${report.path}") val reportPath: String) {
     val gson = GsonBuilder().setLenient().create()
     private val logger = LoggerFactory.getLogger(javaClass)
 
     // Function to generate PDF
     fun generatePdf(content: String, outputFile: String): String {
-        val pdfWriter = PdfWriter("Product_Recommendation_Report.pdf")
+        val filePath = "$reportPath/$outputFile";
+        // Create the directory if it doesn't exist
+        val directory = File(reportPath)
+        if (!directory.exists()) {
+            directory.mkdirs()  // Creates the directory and any necessary parent directories
+        }
+        // Create a PDF writer instance
+        val pdfWriter = PdfWriter(filePath)
         val pdfDoc = PdfDocument(pdfWriter)
         val document = Document(pdfDoc)
         var generateReport: Boolean = true
@@ -144,7 +153,7 @@ class PdfGenerator {
         if (!generateReport) {
             return "Report Not Generated Due to Some Issues"
         }
-        return "PDF created successfully at $outputFile"
+        return "PDF created successfully at $filePath"
     }
 
     fun checkForDigits(text: String): String {

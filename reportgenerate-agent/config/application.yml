@@ -10,3 +10,6 @@ arc:
         client: "openai"
         apiKey: ${OPENAI_API_KEY}
         url: https://api.openai.com/v1/
+
+report:
+  path: /deployments/data
