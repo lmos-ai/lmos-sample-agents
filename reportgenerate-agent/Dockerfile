@@ -9,6 +9,9 @@ COPY build/libs/reportgenerate-agent-$VERSION.jar /deployments/app.jar
 WORKDIR /deployments
 RUN java -Djarmode=layertools -jar app.jar extract
 
+# Make the data directory for generated files
+RUN mkdir -p /deployments/data
+
 ## Stage 2 : create image
 FROM registry.access.redhat.com/ubi9/openjdk-21-runtime
 USER 185
