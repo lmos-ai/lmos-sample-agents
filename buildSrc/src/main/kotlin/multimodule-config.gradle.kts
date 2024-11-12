@@ -76,6 +76,9 @@ dependencies {
     implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
     implementation("io.ktor:ktor-client-cio-jvm:$ktorVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.7.1")
+
+    //pdf
+    implementation("com.itextpdf:itext7-core:7.1.15")
 }
 
 repositories {

@@ -1,0 +1,20 @@
+#
+# SPDX-FileCopyrightText: 2024 Deutsche Telekom AG
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+apiVersion: lmos.ai/v1
+kind: Agent
+metadata:
+  name: {{ include "reportgenerate-agent.fullname" . }}
+  labels:
+    version: {{ .Chart.AppVersion | quote }}
+spec:
+  description: The Report generation Agent.
+  supportedChannels:
+    - web
+  providedCapabilities:
+    - name: get-reportgenerate
+      version: {{ .Chart.AppVersion | replace "-SNAPSHOT" "" | quote }}
+      description: Capability of generating reports in PDF file
