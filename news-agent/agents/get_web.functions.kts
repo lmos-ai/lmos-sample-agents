@@ -10,7 +10,7 @@ function(
     types(
         string(
             name = "url",
-            description = "The URL of the webpage to get"
+            description = "The URL of the webpage to get "
         )
     ),
 ) { (url) ->
