@@ -22,7 +22,7 @@ jobs:
       REGISTRY_USERNAME: ${{ github.actor }}
       REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
       REGISTRY_NAMESPACE: lmos-ai
-      MODULES: news-agent weather-agent techspec-agent productsearch-agent
+      MODULES: news-agent weather-agent techspec-agent productsearch-agent reportgenerate-agent
     steps:
       - uses: actions/checkout@v4.1.7
       - name: Set up JDK 21
