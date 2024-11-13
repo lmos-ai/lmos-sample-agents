@@ -37,9 +37,6 @@ agent {
                 "price": "Product Price",
                 "review": "Product Review"
               }
-              {
-              //another product
-              }
             ]
           }
         ]
