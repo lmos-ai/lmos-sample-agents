@@ -22,7 +22,6 @@ jobs:
       REGISTRY_USERNAME: ${{ github.actor }}
       REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
       REGISTRY_NAMESPACE: lmos-ai
-      MODULES: news-agent weather-agent techspec-agent productsearch-agent reportgenerate-agent
     steps:
       - uses: actions/checkout@v4.1.7
       - name: Set up JDK 21
@@ -43,9 +42,25 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Discover modules
+        run: |
+          echo "Discovering modules..."
+          
+          MODULES=$(find . -maxdepth 2 -type f \( -name "build.gradle" -o -name "build.gradle.kts" \) -exec dirname {} \; | while read dir; do
+            if [ -f "$dir/Dockerfile" ]; then
+              # Remove ./ prefix from directory name
+              echo "${dir#./}"
+            fi
+          done)
+
+          if [ -z "$MODULES" ]; then
+            echo "Error: No modules found!"
+            exit 1
+          fi
+
+          echo "Found modules: $MODULES"
       - name: Build and Push Docker images
         run: |
-          modules=(${{ env.MODULES }})
           for module in "${modules[@]}"; do
             version=$(grep '^version=' $module/gradle.properties | awk -F= '{print $2}')
             docker build --build-arg VERSION=$version -f $module/Dockerfile -t ghcr.io/${{ github.repository }}/$module:$version $module
