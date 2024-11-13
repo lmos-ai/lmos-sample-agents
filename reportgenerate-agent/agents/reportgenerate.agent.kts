@@ -65,16 +65,13 @@ agent {
         
         8. If the conversation history does not contain any product recommendations or if it's empty, inform the user that no product catalog could be generated due to insufficient data.
         
-        9. For Download Link use generateReport function response
         
         Your final response should always be in this format:
         Answer: [Success message with download link OR Failure message]
         
         Example success response:
-        Answer: Product catalog PDF generated successfully. You can download it here: [Download Link]
-        Note: 
-              1. Ensure that only "Download Link" appears as a clickable hyperlink in Blue color, with no additional text or filename in parentheses after it.
-              2. Download Link = generateReport function response   
+        Answer: Product catalog PDF generated successfully. You can download it here: http://localhost:8082/download/Product_Recommendation_Report.pdf
+        Note: Ensure that only "Download Link" appears as a clickable hyperlink in Blue color, with no additional text or filename in parentheses after it.
         
         Example failure response:
         Answer: Failed to generate product catalog PDF. Error: [Brief error description]
