@@ -10,6 +10,7 @@ path = [
     ".github/**",
     ".gitignore",
     "*.md",
+    "CODEOWNERS",
     "**/Dockerfile",
     ".devcontainer/**"
 ]
