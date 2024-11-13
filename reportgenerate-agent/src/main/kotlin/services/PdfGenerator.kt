@@ -47,6 +47,10 @@ class PdfGenerator(@Value("\${report.path}") val reportPath: String) {
             document.add(title)
 
             var correctedJson = content.trimIndent()
+            //Handle such scenario
+            if (correctedJson.endsWith('}')) {
+                correctedJson = correctedJson.substring(0, correctedJson.length - 1);
+            }
             logger.info("Json_Data: $correctedJson")
 
             // Fix issues such as unescaped quotes or improper characters
@@ -56,11 +60,6 @@ class PdfGenerator(@Value("\${report.path}") val reportPath: String) {
             correctedJson = correctedJson.replace("\\${'$'}", "$")
             correctedJson =
                 correctedJson.replace("\"[ ]*([,}])".toRegex(), "\"$1")  // Clean up misplaced spaces after quotes
-            correctedJson = correctedJson.replace("\"[ \n\r]*\\]".toRegex(), "\" ]") // Fix arrays
-            correctedJson =
-                correctedJson.replace(",\\s*}".toRegex(), "}") // Remove trailing commas before closing braces
-            correctedJson =
-                correctedJson.replace(",\\s*\\]".toRegex(), "]") // Remove trailing commas before closing brackets
 
             logger.info("After Sanitization: $correctedJson")
             // Try to parse the JSON into a list of Category objects

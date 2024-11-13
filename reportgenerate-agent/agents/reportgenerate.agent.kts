@@ -37,6 +37,9 @@ agent {
                 "price": "Product Price",
                 "review": "Product Review"
               }
+              {
+              //another product
+              }
             ]
           }
         ]
@@ -45,6 +48,7 @@ agent {
         3. Validate and sanitize the JSON data:
            - Ensure there are no special characters (", ', \, ~, etc.) in product names or other fields.
            - If any special characters are found, remove or replace them with appropriate alternatives.
+           Note: Ensure all JSON keys and values are enclosed in double quotes ("). Escape any characters that could disrupt JSON parsing and always end with }]
         
         4. Call the generateReport function with the sanitized JSON array string as its argument:
         
