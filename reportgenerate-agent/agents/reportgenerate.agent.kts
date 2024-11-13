@@ -45,6 +45,7 @@ agent {
         3. Validate and sanitize the JSON data:
            - Ensure there are no special characters (", ', \, ~, etc.) in product names or other fields.
            - If any special characters are found, remove or replace them with appropriate alternatives.
+           Note: Ensure all JSON keys and values are enclosed in double quotes ("). Escape any characters that could disrupt JSON parsing and always end with }]
         
         4. Call the generateReport function with the sanitized JSON array string as its argument:
         
@@ -69,7 +70,7 @@ agent {
         Answer: [Success message with download link OR Failure message]
         
         Example success response:
-        Answer: Product catalog PDF generated successfully. You can download it here: [Download Link]
+        Answer: Product catalog PDF generated successfully. You can download it here: http://localhost:8082/download/Product_Recommendation_Report.pdf
         Note: Ensure that only "Download Link" appears as a clickable hyperlink in Blue color, with no additional text or filename in parentheses after it.
         
         Example failure response:
