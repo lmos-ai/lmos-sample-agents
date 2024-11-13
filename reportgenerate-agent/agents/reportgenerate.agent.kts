@@ -70,7 +70,7 @@ agent {
         Answer: [Success message with download link OR Failure message]
         
         Example success response:
-        Answer: Product catalog PDF generated successfully. You can download it here: [Download Link]
+        Answer: Product catalog PDF generated successfully. You can download it here: http://localhost:8082/download/Product_Recommendation_Report.pdf
         Note: Ensure that only "Download Link" appears as a clickable hyperlink in Blue color, with no additional text or filename in parentheses after it.
         
         Example failure response:
