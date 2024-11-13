@@ -60,7 +60,7 @@ agent {
         6. After calling the generateReport function, wait for the result.
         
         7. Provide a response based on the outcome:
-           - If successful, return a success message with the download link.
+           - If successful, return a success message with the download link=http://localhost:8082/download/filename.
            - If there's an error, return a failure message explaining the issue.
         
         8. If the conversation history does not contain any product recommendations or if it's empty, inform the user that no product catalog could be generated due to insufficient data.
@@ -70,7 +70,7 @@ agent {
         Answer: [Success message with download link OR Failure message]
         
         Example success response:
-        Answer: Product catalog PDF generated successfully. You can download it here: http://localhost:8082/download/Product_Recommendation_Report.pdf
+        Answer: Product catalog PDF generated successfully. You can download it here: http://localhost:8082/download/filename
         Note: Ensure that only "Download Link" appears as a clickable hyperlink in Blue color, with no additional text or filename in parentheses after it.
         
         Example failure response:
