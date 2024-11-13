@@ -1,6 +1,6 @@
 # This file helps GitHub doing automatic review requests for new PRs.
 
-# Assign all PRs to the most suitable comitter:
+# Assign all PRs to the most suitable committer:
 /buildSrc/ @pschwager
 /productsearch-agent/ @dharam1291
 /reportgenerate-agent/ @dharam1291
