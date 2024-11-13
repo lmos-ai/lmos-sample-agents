@@ -22,7 +22,6 @@ jobs:
       REGISTRY_USERNAME: ${{ github.actor }}
       REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
       REGISTRY_NAMESPACE: lmos-ai
-      MODULES: news-agent weather-agent techspec-agent productsearch-agent reportgenerate-agent
     steps:
       - uses: actions/checkout@v4.1.7
       - name: Set up JDK 21
@@ -45,7 +44,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and Push Docker images
         run: |
-          modules=(${{ env.MODULES }})
+          modules=$(find . -type f -name 'Dockerfile' -exec dirname {} \;)
           for module in "${modules[@]}"; do
             version=$(grep '^version=' $module/gradle.properties | awk -F= '{print $2}')
             docker build --build-arg VERSION=$version -f $module/Dockerfile -t ghcr.io/${{ github.repository }}/$module:$version $module
