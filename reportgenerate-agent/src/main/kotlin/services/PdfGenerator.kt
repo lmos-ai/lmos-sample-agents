@@ -152,7 +152,7 @@ class PdfGenerator(@Value("\${report.path}") val reportPath: String) {
         if (!generateReport) {
             return "Report Not Generated Due to Some Issues"
         }
-        return "PDF created successfully at $filePath"
+        return "PDF created successfully at $outputFile"
     }
 
     fun checkForDigits(text: String): String {
