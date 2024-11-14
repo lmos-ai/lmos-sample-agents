@@ -11,10 +11,10 @@ metadata:
   labels:
     version: {{ .Chart.AppVersion | quote }}
 spec:
-  description: This agent provides comprehensive technical information and specifications for various products (TVs, Mobile Phones, Laptops). It translates general requirements into relevant product features, offering insights for users who need clarification on product capabilities such as size for specific environments, display suitability for lighting conditions, and sound system quality. This information aims to help users make informed decisions, preparing them for product selection.
+  description: This agent provides comprehensive technical information and specifications for various electronics products (TVs, Mobile Phones, Laptops). It translates general user requirements, like screen brightness for outdoor use or screen size preferences for video consumption, into relevant product features and capabilities. This agent is designed to help users understand technical details that match their qualitative needs, without requiring them to specify exact specifications upfront.
   supportedChannels:
     - web
   providedCapabilities:
     - name: get-techspec
       version: {{ .Chart.AppVersion | replace "-SNAPSHOT" "" | quote }}
-      description: This agent delivers comprehensive technical information about electronics products (e.g., TVs, Mobile Phones, Laptops) in response to user inquiries. It handles both general and specific questions on product features, effectively translating broad requirements into relevant technical insights, such as understanding size compatibility with room dimensions, display performance in various lighting conditions, and sound quality considerations without needing exact specifications from the user.
+      description: This agent provides comprehensive technical information and specifications for various electronics products (TVs, Mobile Phones, Laptops). It translates general user requirements, like screen brightness for outdoor use or screen size preferences for video consumption, into relevant product features and capabilities. This agent is designed to help users understand technical details that match their qualitative needs, without requiring them to specify exact specifications upfront.

@@ -1,20 +1,20 @@
 // SPDX-FileCopyrightText: 2024 Deutsche Telekom AG
 //
 // SPDX-License-Identifier: Apache-2.0
-import ai.ancf.lmos.arc.sample.services.PdfGenerator
+import ai.ancf.lmos.arc.sample.services.HtmlGenerator
 
 function(
     name = "generateReport",
-    description = "generate pdf report of product catalog",
+    description = "Generate report of product catalog",
     params = types(
         string(
-            name = "json_data",
-            description = "A json data having product catalog information"
+            name = "html_content",
+            description = "A html data having product catalog information"
         )
     ),
 ) { (query) ->
-    val pdfGenerate = get<PdfGenerator>()
-    val contextResult = query?.let { pdfGenerate.generatePdf(it, "Product_Recommendation_Report.pdf") }
+    val htmlGenerate = get<HtmlGenerator>()
+    val contextResult = query?.let { htmlGenerate.generateHtml(it, "Product_Recommendation_Report.html") }
     """
         $contextResult
     """.trimIndent()
