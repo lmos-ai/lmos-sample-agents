@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2024 Deutsche Telekom AG
 //
 // SPDX-License-Identifier: Apache-2.0
-import ai.ancf.lmos.arc.api.AgentRequest
+import org.eclipse.lmos.arc.api.AgentRequest
 agent {
     name = "reportgenerate-agent"
     description = "The html Report Generation Agent analyzes user queries to generate tailored reports, compiling insights into a clear, well-structured html document"

@@ -4,8 +4,8 @@ SPDX-FileCopyrightText: 2024 Deutsche Telekom AG
 SPDX-License-Identifier: CC0-1.0    
 -->
 
-[![Java CI with Gradle](https://github.com/lmos-ai/lmos-sample-agents/actions/workflows/gradle.yml/badge.svg)](https://github.com/lmos-ai/lmos-sample-agents/actions/workflows/gradle.yml)
-[![GitHub Actions Publish Status](https://github.com/lmos-ai/lmos-sample-agents/actions/workflows/gradle-publish.yml/badge.svg?branch=main)](https://github.com/lmos-ai/lmos-sample-agents/actions/workflows/gradle-publish.yml)
+[![Java CI with Gradle](https://github.com/eclipse-lmos/lmos-sample-agents/actions/workflows/gradle.yml/badge.svg)](https://github.com/eclipse-lmos/lmos-sample-agents/actions/workflows/gradle.yml)
+[![GitHub Actions Publish Status](https://github.com/eclipse-lmos/lmos-sample-agents/actions/workflows/gradle-publish.yml/badge.svg?branch=main)](https://github.com/eclipse-lmos/lmos-sample-agents/actions/workflows/gradle-publish.yml)
 [![Apache 2.0 License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
@@ -48,7 +48,7 @@ for the news agent.
 
 #### 3. Access the Agent
 
-The sample agents are built with [Arc](https://lmos-ai.github.io/arc/) and can be accessed via a Graphiql interface.
+The sample agents are built with [Arc](https://eclipse-lmos.github.io/arc/) and can be accessed via a Graphiql interface.
 Open http://localhost:8080/graphiql?path=/graphql
 
 Example request for the news agent:

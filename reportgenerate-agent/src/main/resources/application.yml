@@ -28,7 +28,7 @@ arc:
 logging:
   level:
     root: info
-    ai.ancf.lmos.arc: DEBUG
+    org.eclipse.lmos.arc: DEBUG
     io.github.lmos.arc: DEBUG
     io.github.lmos.arc.runner: WARN
     ArcDSL: DEBUG

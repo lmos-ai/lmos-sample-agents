@@ -31,7 +31,7 @@ helm {
 }
 
 dependencies {
-    val arcVersion = "0.88.0"
+    val arcVersion = "0.1.0-SNAPSHOT"
     val kotlinXVersion = "1.8.0"
     val kotlinSerialization = "1.7.1"
     val springBootVersion = "3.3.3"
@@ -40,13 +40,13 @@ dependencies {
     implementation(platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}"))
 
     // Arc Dependencies
-    implementation("ai.ancf.lmos:arc-scripting:$arcVersion")
-    implementation("ai.ancf.lmos:arc-azure-client:$arcVersion")
+    implementation("org.eclipse.lmos:arc-scripting:$arcVersion")
+    implementation("org.eclipse.lmos:arc-azure-client:$arcVersion")
     implementation("com.azure:azure-identity:1.13.1")
-    implementation("ai.ancf.lmos:arc-spring-boot-starter:$arcVersion")
-    implementation("ai.ancf.lmos:arc-ollama-client:$arcVersion")
-    implementation("ai.ancf.lmos:arc-reader-html:$arcVersion")
-    implementation("ai.ancf.lmos:arc-graphql-spring-boot-starter:$arcVersion")
+    implementation("org.eclipse.lmos:arc-spring-boot-starter:$arcVersion")
+    implementation("org.eclipse.lmos:arc-ollama-client:$arcVersion")
+    implementation("org.eclipse.lmos:arc-reader-html:$arcVersion")
+    implementation("org.eclipse.lmos:arc-graphql-spring-boot-starter:$arcVersion")
     implementation("com.graphql-java:graphql-java:21.5")
 
     // Kotlin Dependencies

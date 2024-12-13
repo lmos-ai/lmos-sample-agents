@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import ai.ancf.lmos.arc.api.AgentRequest
+import org.eclipse.lmos.arc.api.AgentRequest
 
 agent {
     name = "techspec-agent"

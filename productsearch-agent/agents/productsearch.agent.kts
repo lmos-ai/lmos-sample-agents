@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2024 Deutsche Telekom AG
 //
 // SPDX-License-Identifier: Apache-2.0
-import ai.ancf.lmos.arc.api.AgentRequest
+import org.eclipse.lmos.arc.api.AgentRequest
 
 agent {
     name = "productsearch-agent"
