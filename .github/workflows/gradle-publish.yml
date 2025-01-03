@@ -13,6 +13,7 @@ env:
   REGISTRY_USERNAME: ${{ github.actor }}
   REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
   REGISTRY_NAMESPACE: eclipse-lmos
+  MODULES: "weather-agent news-agent productsearch-agent techspec-agent reportgenerate-agent"
 
 jobs:
   verify:
@@ -60,8 +61,8 @@ jobs:
           modules=(${{ env.MODULES }})
           for module in "${modules[@]}"; do
             version=$(grep '^version=' $module/gradle.properties | awk -F= '{print $2}')
-            docker build --build-arg VERSION=$version -f $module/Dockerfile -t ghcr.io/${{ github.repository }}/$module:$version $module
-            docker push ghcr.io/${{ github.repository }}/$module:$version
+            docker build --build-arg VERSION=$version -f $module/Dockerfile -t ghcr.io/eclipse-lmos/$module:$version $module
+            docker push ghcr.io/eclipse-lmos/$module:$version
           done
       - name: Publish Chart to GitHub Packages
         run: ./gradlew helmPush

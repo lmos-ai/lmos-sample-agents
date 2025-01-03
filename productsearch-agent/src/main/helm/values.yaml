@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/eclipse-lmos/lmos-sample-agents/productsearch-agent
+  repository: ghcr.io/eclipse-lmos/productsearch-agent
   pullPolicy: IfNotPresent
   
 nameOverride: "productsearch-agent"

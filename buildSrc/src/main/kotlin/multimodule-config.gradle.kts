@@ -2,6 +2,11 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
+import com.vanniktech.maven.publish.SonatypeHost
+import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
+import java.lang.System.getenv
+import java.net.URI
+
 plugins {
     kotlin("jvm")
     kotlin("plugin.serialization")
@@ -11,12 +16,56 @@ plugins {
     id("org.graalvm.buildtools.native")
     id("com.citi.helm")
     id("com.citi.helm-publish")
+    id("com.vanniktech.maven.publish")
 }
 
 kotlin {
     jvmToolchain(21)
     compilerOptions {
         freeCompilerArgs.addAll("-Xjsr305=strict", "-Xcontext-receivers")
+    }
+}
+
+group = "org.eclipse.lmos"
+
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.DEFAULT)
+    signAllPublications()
+
+    pom {
+        name = "LMOS Sample Agents"
+        description =
+            """Sample agents for deploying to an LMOS instance
+            """.trimMargin()
+        url = "https://github.com/eclipse-lmos/lmos-sample-agents"
+        licenses {
+            license {
+                name = "Apache-2.0"
+                distribution = "repo"
+                url = "https://github.com/eclipse-lmos/lmos-sample-agents/blob/main/LICENSES/Apache-2.0.txt"
+            }
+        }
+        developers {
+            developer {
+                id = "telekom"
+                name = "Telekom Open Source"
+                email = "opensource@telekom.de"
+            }
+        }
+        scm {
+            url = "https://github.com/eclipse-lmos/lmos-sample-agents.git"
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = URI("https://maven.pkg.github.com/eclipse-lmos/lmos-sample-agents")
+            credentials {
+                username = findProperty("GITHUB_USER")?.toString() ?: getenv("GITHUB_USER")
+                password = findProperty("GITHUB_TOKEN")?.toString() ?: getenv("GITHUB_TOKEN")
+            }
+        }
     }
 }
 
@@ -79,6 +128,8 @@ dependencies {
 
     //pdf
     implementation("com.itextpdf:itext7-core:7.1.15")
+
+    implementation("com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin:0.30.0")
 }
 
 repositories {
