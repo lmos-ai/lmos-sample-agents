@@ -8,12 +8,15 @@ ARG VERSION
 COPY build/libs/techspec-agent-$VERSION.jar /deployments/app.jar
 WORKDIR /deployments
 RUN java -Djarmode=layertools -jar app.jar extract
+# Ensure that the snapshot-dependencies folder is created even if there were no snapshot dependencies in the jar file (to avoid error when copying from that directory below)
+RUN mkdir -p snapshot-dependencies
 
 ## Stage 2 : create image
 FROM registry.access.redhat.com/ubi9/openjdk-21-runtime
 USER 185
 WORKDIR /deployments
 COPY --from=builder /deployments/dependencies/ ./
+COPY --from=builder /deployments/snapshot-dependencies/ ./
 COPY --from=builder /deployments/spring-boot-loader/ ./
 COPY --from=builder /deployments/application/ ./
 COPY config ./config
