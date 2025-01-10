@@ -96,7 +96,6 @@ dependencies {
     implementation("org.eclipse.lmos:arc-ollama-client:$arcVersion")
     implementation("org.eclipse.lmos:arc-reader-html:$arcVersion")
     implementation("org.eclipse.lmos:arc-graphql-spring-boot-starter:$arcVersion")
-    implementation("com.graphql-java:graphql-java:21.5")
 
     // Kotlin Dependencies
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:$kotlinXVersion")
